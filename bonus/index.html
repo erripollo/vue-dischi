@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- style.css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    
+    <div id="app">
+
+        <div class="wrapper">
+            
+            <!-- Site header -->
+            <header id="site_header">
+                <div class="logo">
+                    <img width="60px" src="./assets/img/spotify-2015-logo.png" alt="">
+                </div>
+            </header>
+            <!-- /Site header -->
+    
+            <!-- Site main -->
+            <main id="site_main">
+
+                <!-- genres select -->
+                <div class="genres_select">
+                    <h3>Select a genre</h3>
+                    <select @click="getGenres()" v-model="genreSelect" name="" id="">
+                        <option value="all" selected>All</option>
+                        <option v-for="genre in genres" :value="genre">{{genre}}</option>
+                    </select>
+                </div>
+                <!-- /genres select -->
+
+                <div class="container">
+                    <!-- card album -->
+                    <div class="card" v-for="album in albumsData" v-if="genreSelect === album.genre || genreSelect === 'all' ">
+                        <img width="160px" :src="album.poster" alt="album cover image">
+                        <div class="title">{{album.title}}</div>
+                        <div class="author">{{album.author}}</div>
+                        <div class="year">{{album.year}}</div>
+                    </div>
+                    <!-- /card album -->
+                </div>
+
+            </main>
+            <!-- /Site main -->
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+<!-- CDN Vue.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<!-- CDN axios -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- main.js -->
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>
