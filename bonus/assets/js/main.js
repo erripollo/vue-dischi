@@ -8,6 +8,8 @@ const app = new Vue({
 
         genres: [],
 
+        sortBySelect: 'recentPlayed',
+
         genreSelect: 'all'
 
     },
@@ -26,7 +28,24 @@ const app = new Vue({
             this.genres = genresTemp.filter((el, index) => {
                 return genresTemp.indexOf(el) === index;
             })
+        },
+
+        sortBy(){
+            if(this.sortBySelect == 'sortByYear'){
+                this.albumsData.sort((a, b) => {
+                    return a.year - b.year
+                })
+            }else  {
+                axios
+                .get(this.url)
+                .then(resp => {
+                    console.log(resp.data.response);
+                    this.albumsData = resp.data.response
+                })
+            }
+            
         }
+       
 
     },
 
@@ -38,8 +57,6 @@ const app = new Vue({
             console.log(resp.data.response);
             this.albumsData = resp.data.response
         })
-
-        
 
     },
     

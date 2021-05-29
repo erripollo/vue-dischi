@@ -34,7 +34,7 @@ main {
   overflow-y: auto;
 }
 
-main .genres_select {
+main .select_filter {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,12 +42,12 @@ main .genres_select {
   color: white;
 }
 
-.genres_select > h3 {
+.select_filter > h3 {
   text-transform: uppercase;
   font-weight: 300;
 }
 
-.genres_select > select {
+.select_filter > select {
   width: 80px;
   height: 35px;
   font-size: 1rem;
@@ -57,6 +57,11 @@ main .genres_select {
   color: white;
   padding: 5px 8px;
   margin-left: 1rem;
+  margin-right: 4rem;
+}
+
+.select_filter > select.sort_by {
+  width: fit-content;
 }
 
 main .container {

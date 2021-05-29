@@ -30,15 +30,23 @@
             <!-- Site main -->
             <main id="site_main">
 
-                <!-- genres select -->
-                <div class="genres_select">
+                <div class="select_filter">
+                    <!-- genres select -->
                     <h3>Select a genre</h3>
-                    <select @click="getGenres()" v-model="genreSelect" name="" id="">
+                    <select class="genre" @click="getGenres()" v-model="genreSelect" name="" id="">
                         <option value="all" selected>All</option>
                         <option v-for="genre in genres" :value="genre">{{genre}}</option>
                     </select>
+                    <!-- /genres select -->
+
+                    <!-- sort by... -->
+                    <h3>Sort by</h3>
+                    <select class="sort_by" v-model="sortBySelect" @change="sortBy" name="" id="">
+                        <option value="recentlyPlayed" selected>Recently played</option>
+                        <option value="sortByYear">Year</option>
+                    </select>
+                    <!-- /sort by... -->
                 </div>
-                <!-- /genres select -->
 
                 <div class="container">
                     <!-- card album -->
@@ -50,6 +58,7 @@
                     </div>
                     <!-- /card album -->
                 </div>
+
 
             </main>
             <!-- /Site main -->
